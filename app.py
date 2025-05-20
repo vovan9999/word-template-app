@@ -23,7 +23,7 @@ def generate():
         temp_docx = tempfile.NamedTemporaryFile(delete=False, suffix='.docx')
         doc.save(temp_docx.name)
 
-        return send_file(temp_docx.name, as_attachment=True, download_name="result.docx")
+        return send_file(temp_docx.name, as_attachment=True, download_name="zayava_na_vidpustky.docx")
 
     return render_template('form.html')
 
