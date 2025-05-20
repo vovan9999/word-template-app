@@ -14,9 +14,18 @@ def generate():
         date = request.form['date']
         template_name = request.form['template']
 
+        # === Обробка ПІБ: отримуємо short_name ===
+        parts = name.strip().split()
+        if len(parts) >= 3:
+            lastname = parts[0]
+            initials = f"{parts[1][0]}.{parts[2][0]}."
+            short_name = f"{lastname} {initials}"
+        else:
+            short_name = name  # fallback якщо щось не так
+
         # Завантаження шаблону
         doc = DocxTemplate(template_name)
-        context = {'name': name, 'position': position, 'number': number, 'date': date}
+        context = {'name': name, 'position': position, 'number': number, 'date': date, 'short_name': short_name}
         doc.render(context)
 
         # Створення тимчасового .docx
