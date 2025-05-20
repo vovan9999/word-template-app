@@ -13,6 +13,7 @@ def generate():
         number = request.form['number']
         date = request.form['date']
         template_name = request.form['template']
+        job_title = request.form['job_title']
 
         # === Обробка ПІБ: отримуємо short_name ===
         parts = name.strip().split()
@@ -25,7 +26,14 @@ def generate():
 
         # Завантаження шаблону
         doc = DocxTemplate(template_name)
-        context = {'name': name, 'position': position, 'number': number, 'date': date, 'short_name': short_name}
+        context = {
+            'name': name,
+            'position': position,
+            'number': number,
+            'date': date,
+            'short_name': short_name,
+            'job_title': job_title,
+            }
         doc.render(context)
 
         # Створення тимчасового .docx
