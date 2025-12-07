@@ -38,6 +38,43 @@
         #footer_date:focus {
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
         }
+
+        .badge-new{
+            display:inline-block;
+            font-size:12px;
+            font-weight:700;
+            padding:6px 8px;
+            border-radius:12px;
+            background:#ff3b30;
+            color:#fff;
+            box-shadow:0 0 0 rgba(255,59,48,0.6);
+            transform-origin:center;
+            animation:badge-pulse 1.8s infinite;
+            letter-spacing:0.6px;
+            }
+            @keyframes badge-pulse{
+            0%   { transform:scale(1); box-shadow:0 0 0 0 rgba(255,59,48,0.45); }
+            50%  { transform:scale(1.06); box-shadow:0 0 12px 6px rgba(255,59,48,0.12); }
+            100% { transform:scale(1); box-shadow:0 0 0 0 rgba(255,59,48,0.0); }
+        }
+
+        .new-info {
+            width: 25%;
+        }
+
+        @media (max-width: 425px) {
+            .new-info {
+                width: 90%;
+                padding-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .new-info {
+                width: 30%;
+                /* padding-bottom: 20px; */
+            }
+        }
         
     </style>
 </head>
@@ -46,6 +83,11 @@
 
     <div class="container py-4">
         <div class="row justify-content-center">
+            <div class="col-md-6 new-info card-footer mt-3">
+                <span class="badge-new">NEW</span> <span style="color: red;">Оновлення:</span> <br>
+                    Внесено зміни до поля «Структурний підрозділ».
+                    Можливі незначні зміщення під час перегляду на мобільних пристроях; у комп’ютерній версії відображення коректне.
+            </div>
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="card shadow-sm fade-in" id="form-card">
                     <div class="card-header bg-primary text-white text-center">
@@ -94,6 +136,13 @@
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-success btn-animate">Згенерувати заяву</button>
                             </div>
+
+                            <!-- <div class="card-footer mt-3">
+                                <span class="badge-new">NEW</span> <span style="color: red;">Оновлення:</span> <br>
+                                    Оновлено поле «Структурний підрозділ».
+                                    На телефоні відображення може трохи зміщуватися — на комп’ютері все коректно.
+                            </div> -->
+
                             <div class="card-footer text-muted text-center mt-3">
                                 Всі данні захищені і не зберігаються на сервері
                             </div>
